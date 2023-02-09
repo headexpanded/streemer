@@ -14,8 +14,10 @@ When your energy cost reaches your payment limit, that amount is paid to your en
 
 I connect my smart meter. I set my payment limit at 20 dollars. When I have used 20 dollars of energy, 20 dollars is paid from my account direct to my energy supplier.
 
--   I can change my payment limit at any time.
 -   I can add more smart meters, or remove smart meters, at any time.
+-   I can change my payment limit at any time.
+-   I can change my payment method at any time.
+-   At the end of my billing period, the remaining payable is far less than before!
 
 ## Learning Streemer
 
