@@ -12,13 +12,13 @@ When your energy cost reaches your payment limit, that amount is paid to your en
 
 ## Example
 
-I connect my smart meter. I set my payment limit at 20 dollars. When I have used 20 dollars of energy, 20 dollars is paid from my account direct to my energy supplier.
+I connect my smart meter. I set my payment limit at 20 dollars. When I've used 20 dollars worth of energy, 20 dollars is paid from my account direct to my energy supplier.
 
--   I can add smart meters, or remove smart meters, at any time.
--   I can change my payment _limit_ at any time.
--   I can change my payment _method_ at any time.
--   I can _pause_ Streemer at any time.
--   At the end of my billing period, the remaining payable is far less than before!
+-   Add smart meters, or remove smart meters, at any time.
+-   Change your payment _limit_ at any time.
+-   Change your payment _method_ at any time.
+-   No money in your account? Then _pause_ Streemer at any time.
+-   At the end of your billing period, the remaining payable is far less than before!
 
 ## Learning Streemer
 
