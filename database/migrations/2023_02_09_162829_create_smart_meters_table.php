@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('smartmeter');
+            $table->string('sm_name')->nullable();
             $table->timestamps();
         });
     }

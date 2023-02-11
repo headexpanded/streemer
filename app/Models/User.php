@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'max_payment_amount',
+        'supplier_id',
     ];
 
     /**
@@ -46,4 +48,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(SmartMeter::class);
     }
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+        
+    }
+
+
 }

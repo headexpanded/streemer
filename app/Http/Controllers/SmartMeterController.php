@@ -40,6 +40,7 @@ class SmartMeterController extends Controller
     {
         $validated = $request->validate([
             'smartmeter' => 'required|string|max:16',
+            'sm_name' => 'string:max:255',
         ]);
  
         $request->user()->smartmeters()->create($validated);

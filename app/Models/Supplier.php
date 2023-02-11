@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SmartMeter extends Model
+class Supplier extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'smartmeter',
-        'sm_name',
+        'supplier',
     ];
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
     }
 }

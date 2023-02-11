@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SmartMeterController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,6 +34,9 @@ Route::get('/', function () {
 Route::resource('smartmeters', SmartMeterController::class)
     ->only(['index', 'store', 'update', 'destroy'])
     ->middleware(['auth']);
+
+/* Route::resource('suppliers', SupplierController::class)
+    ->only(['index']); */
 
 
 Route::middleware('auth')->group(function () {
