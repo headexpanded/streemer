@@ -5,12 +5,13 @@ import SelectInput from "@/Components/SelectInput";
 import { useForm, usePage } from "@inertiajs/react";
 import { Transition } from "@headlessui/react";
 
-export default function UpdateSupplierForm({ className }) {
+export default function UpdateSupplierForm({ className, supplier }) {
     const user = usePage().props.auth.user;
 
     const { data, setData, patch, errors, processing, recentlySuccessful } =
-        useForm({
-            supplier: user.supplier,
+        useForm({/* 
+            supplier: supplier.supplier,
+            supplier_id: supplier.supplier_id, */
         });
 
     const submit = (e) => {

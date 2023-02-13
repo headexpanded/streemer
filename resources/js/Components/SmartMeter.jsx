@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Dropdown from "./Dropdown";
 import InputError from "./InputError";
+import InputLabel from "./InputLabel";
+import TextInput from "./TextInput";
 import PrimaryButton from "./PrimaryButton";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useForm, usePage } from "@inertiajs/react";
+import CostCounter from "./CostCounter";
 
 dayjs.extend(relativeTime);
 
@@ -15,6 +18,9 @@ export default function SmartMeter({ smartmeter }) {
 
     const { data, setData, patch, clearErrors, reset, errors } = useForm({
         smartmeter: smartmeter.smartmeter,
+        name: smartmeter.name,
+        supplier_id: smartmeter.supplier_id,
+        supplier: smartmeter.supplier.name,
     });
 
     const submit = (e) => {
@@ -25,15 +31,14 @@ export default function SmartMeter({ smartmeter }) {
     };
 
     return (
-        <div className="p-6 flex space-x-2">
-            
-            <div className="flex-1">
+        <div className=" flex">
+            <div className="flex-1 p-6 shadow-sm rounded-lg bg-white mb-6">
                 <div className="flex justify-between items-center">
                     <div>
-                        <span className="text-gray-800">
-                            {smartmeter.sm_name}
+                        <span className="text-lg font-medium text-gray-900">
+                            {smartmeter.name}
                         </span>
-                        <small className="ml-2 text-sm text-gray-600">
+                        {/* <small className="ml-2 text-sm text-gray-600">
                             {dayjs(smartmeter.created_at).fromNow()}
                         </small>
                         {smartmeter.created_at !== smartmeter.updated_at && (
@@ -41,8 +46,9 @@ export default function SmartMeter({ smartmeter }) {
                                 {" "}
                                 &middot; edited
                             </small>
-                        )}
+                        )} */}
                     </div>
+
                     {smartmeter.user.id === auth.user.id && (
                         <Dropdown>
                             <Dropdown.Trigger>
@@ -79,14 +85,32 @@ export default function SmartMeter({ smartmeter }) {
                     )}
                 </div>
                 {editing ? (
-                    <form onSubmit={submit}>
-                        <textarea
-                            value={data.smartmeter}
-                            onChange={(e) =>
-                                setData("smartmeter", e.target.value)
-                            }
-                            className="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                        ></textarea>
+                    <form onSubmit={submit} className="mt-6 space-y-6">
+                        <div>
+                            <InputLabel
+                                for="smartmeterID"
+                                value="Smart meter ID"
+                            />
+                            <TextInput
+                                value={data.smartmeter}
+                                name="smartmeterID"
+                                onChange={(e) =>
+                                    setData("smartmeter", e.target.value)
+                                }
+                                className="mt-1 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                            />
+                        </div>
+                        <div>
+                            <InputLabel for="name" value="Smart meter name" />
+                            <TextInput
+                                value={data.name}
+                                name="name"
+                                onChange={(e) =>
+                                    setData("name", e.target.value)
+                                }
+                                className="mt-1 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                            />
+                        </div>
                         <InputError message={errors.message} class="mt-2" />
                         <div className="space-x-2">
                             <PrimaryButton className="mt-4">Save</PrimaryButton>
@@ -99,13 +123,20 @@ export default function SmartMeter({ smartmeter }) {
                                 }}
                             >
                                 Cancel
-                            </button>
+                            </button> 
                         </div>
                     </form>
                 ) : (
-                    <p className="mt-4 text-lg text-gray-900">
-                        {smartmeter.smartmeter}
-                    </p>
+                    <div>
+                        <p className="mt-4 text-lg text-gray-900">
+                            ID: {smartmeter.smartmeter}
+                        </p>
+                        <p className="mt-4 text-lg text-gray-900">
+                            Supplier: {smartmeter.supplier.name}
+                        </p>
+
+                        <CostCounter />
+                    </div>
                 )}
             </div>
         </div>

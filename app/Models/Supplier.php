@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Inertia\Inertia;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Supplier extends Model
 {
@@ -13,8 +14,20 @@ class Supplier extends Model
         'supplier',
     ];
 
-    public function users()
+    public function smartmeters()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(SmartMeter::class);
+    }
+
+    public static function getSupplierNameByID($supplier_id)
+    {
+        return self::where('id', $supplier_id)->first();
+
+    }
+
+    public function index()
+    {
+        $suppliers = Supplier::all();
+        return response()->json($suppliers);
     }
 }

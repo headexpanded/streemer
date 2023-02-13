@@ -10,11 +10,11 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
     return (
         <AuthenticatedLayout
             auth={auth}
-            header={
+            /* header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                     Account
                 </h2>
-            }
+            } */
         >
             <Head title="Account" />
 
@@ -24,9 +24,9 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
                         <UpdateMaxPaymentAmountForm className="max-w-xl" />
                     </div>
 
-                    <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    {/* <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                         <UpdateSupplierForm className="max-w-xl" />
-                    </div>
+                    </div> */}
 
                     <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                         <UpdateProfileInformationForm

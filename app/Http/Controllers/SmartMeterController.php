@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Supplier;
 use App\Models\SmartMeter;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class SmartMeterController extends Controller
     public function index()
     {
         return Inertia::render('SmartMeters/Index', [
-            'smartmeters' => SmartMeter::with('user:id,name')->latest()->get(),
+            'smartmeters' => SmartMeter::with('user:id,name', 'supplier')->latest()->get(),
+            
         ]);
     }
 
@@ -40,7 +42,8 @@ class SmartMeterController extends Controller
     {
         $validated = $request->validate([
             'smartmeter' => 'required|string|max:16',
-            'sm_name' => 'string:max:255',
+            'name' => 'string:max:255',
+            'supplier_id' => 'integer',
         ]);
  
         $request->user()->smartmeters()->create($validated);
@@ -85,6 +88,8 @@ class SmartMeterController extends Controller
  
         $validated = $request->validate([
             'smartmeter' => 'required|string|max:16',
+            'name' => 'string|max:255',
+            'supplier_id' => 'integer',
         ]);
  
         $smartMeter->update($validated);
@@ -106,5 +111,17 @@ class SmartMeterController extends Controller
         $smartMeter->delete();
  
         return redirect(route('smartmeters.index'));
+    }
+
+    public function smartMeterAPI()
+    {
+        $smartmeters = SmartMeter::all();
+        return response()->json([
+            'smartmeters' => [
+                [
+                    'smartmeter' => $smartmeters
+                ]
+            ]
+        ]);
     }
 }

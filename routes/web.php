@@ -35,8 +35,8 @@ Route::resource('smartmeters', SmartMeterController::class)
     ->only(['index', 'store', 'update', 'destroy'])
     ->middleware(['auth']);
 
-/* Route::resource('suppliers', SupplierController::class)
-    ->only(['index']); */
+Route::resource('suppliers', SupplierController::class)
+    ->only(['index', 'show']);
 
 
 Route::middleware('auth')->group(function () {

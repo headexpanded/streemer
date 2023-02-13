@@ -34,9 +34,6 @@ export default forwardRef(function SelectInput(
                 required={required}
                 onChange={(e) => handleChange(e)}
             >
-                <option value="1">Creos</option>
-                <option value="2">Enovos</option>
-                <option value="3">SudEnergie</option>
             </select>
         </div>
     );

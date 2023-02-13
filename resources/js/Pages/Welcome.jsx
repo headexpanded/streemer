@@ -11,7 +11,7 @@ export default function Welcome(props) {
                             href={route("smartmeters.index")}
                             className="text-sm text-gray-700 dark:text-gray-500 underline"
                         >
-                            My SmartMeters
+                            My Smart Meters
                         </Link>
                     ) : (
                         <>
