@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
 import InputError from "./InputError";
 import InputLabel from "./InputLabel";
@@ -29,6 +29,17 @@ export default function SmartMeter({ smartmeter }) {
             onSuccess: () => setEditing(false),
         });
     };
+
+    // get data for select element in form
+    const [suppliers, setSuppliers] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("/suppliers");
+            const data = await response.json();
+            setSuppliers(data);
+        };
+        fetchData();
+    }, []);
 
     return (
         <div className=" flex">
@@ -91,25 +102,66 @@ export default function SmartMeter({ smartmeter }) {
                                 for="smartmeterID"
                                 value="Smart meter ID"
                             />
+
                             <TextInput
                                 value={data.smartmeter}
                                 name="smartmeterID"
-                                onChange={(e) =>
+                                handleChange={(e) =>
                                     setData("smartmeter", e.target.value)
                                 }
                                 className="mt-1 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
                             />
+                            {errors.smartmeter && (
+                                <InputError
+                                    message={errors.smartmeter}
+                                    className="mt-2"
+                                />
+                            )}
                         </div>
                         <div>
                             <InputLabel for="name" value="Smart meter name" />
                             <TextInput
                                 value={data.name}
                                 name="name"
-                                onChange={(e) =>
+                                handleChange={(e) =>
                                     setData("name", e.target.value)
                                 }
                                 className="mt-1 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
                             />
+                            {errors.name && (
+                                <InputError
+                                    message={errors.name}
+                                    className="mt-2"
+                                />
+                            )}
+                        </div>
+                        <div>
+                            <InputLabel
+                                for="supplier"
+                                value="Select your energy supplier"
+                            />
+                            <select
+                                id="supplier"
+                                name="supplier"
+                                className="block w-full border-gray-300 p-2 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                                onChange={(e) =>
+                                    setData("supplier_id", e.target.value)
+                                }
+                            >
+                                <option disabled selected value>
+                                    -- select a supplier --
+                                </option>
+                                {suppliers.map((supplier) => {
+                                    return (
+                                        <option
+                                            key={supplier.id}
+                                            value={supplier.id}
+                                        >
+                                            {supplier.name}
+                                        </option>
+                                    );
+                                })}
+                            </select>
                         </div>
                         <InputError message={errors.message} class="mt-2" />
                         <div className="space-x-2">
@@ -123,7 +175,7 @@ export default function SmartMeter({ smartmeter }) {
                                 }}
                             >
                                 Cancel
-                            </button> 
+                            </button>
                         </div>
                     </form>
                 ) : (

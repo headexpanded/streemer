@@ -56,7 +56,6 @@ export default function AddSmartMeter({ className, close }) {
                         select your energy supplier
                     </p>
                 </header>
-
                 <form onSubmit={submit} className="mt-6 space-y-6">
                     <div>
                         <InputLabel
@@ -67,7 +66,7 @@ export default function AddSmartMeter({ className, close }) {
                             id="smartmeterID"
                             name="smartmeterID"
                             value={data.smartmeter}
-                            required
+                            // required
                             className="mt-1 block w-full"
                             handleChange={(e) =>
                                 setData("smartmeter", e.target.value)
@@ -87,7 +86,7 @@ export default function AddSmartMeter({ className, close }) {
                             id="name"
                             name="name"
                             value={data.name}
-                            required
+                            // required
                             className="mt-1 block w-full"
                             handleChange={(e) =>
                                 setData("name", e.target.value)
@@ -109,6 +108,9 @@ export default function AddSmartMeter({ className, close }) {
                                 setData("supplier_id", e.target.value)
                             }
                         >
+                            <option disabled selected value>
+                                -- select a supplier --
+                            </option>
                             {suppliers.map((supplier) => {
                                 return (
                                     <option

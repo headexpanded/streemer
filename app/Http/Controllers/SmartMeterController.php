@@ -87,7 +87,7 @@ class SmartMeterController extends Controller
         $this->authorize('update', $smartMeter);
  
         $validated = $request->validate([
-            'smartmeter' => 'required|string|max:16',
+            'smartmeter' => 'bail|unique:smart_meters|required|string|max:16',
             'name' => 'string|max:255',
             'supplier_id' => 'integer',
         ]);
