@@ -49,6 +49,7 @@ export default function Login({ status, canResetPassword }) {
                         autoComplete="username"
                         isFocused={true}
                         handleChange={onHandleChange}
+                        
                     />
 
                     <InputError message={errors.email} className="mt-2" />
