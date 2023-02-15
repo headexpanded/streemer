@@ -34,7 +34,7 @@ export default function Welcome(props) {
                 <section>
                     <div className="hero">
                         <div className="heroText" translate="no">
-                            <h1 className="text-5xl text-white font-extrabold">Streemer</h1>
+                            <h1>Streemer</h1>
                         </div>
                         <div className="heroSubText">
                             <h3>Say goodbye to huge energy bills</h3>
@@ -61,7 +61,7 @@ export default function Welcome(props) {
                         </Link>
                     </div>
 
-                    <div className="p-4 sm:p-8 bg-yellow-300 shadow sm:rounded-lg">
+                    <div className="promoWrapper">
                         <div className="promo promo-1">
                             <p>
                                 Streemer supports 90% of Europe’s energy
@@ -72,7 +72,7 @@ export default function Welcome(props) {
                             </a>
                         </div>
                     </div>
-                    <div className="p-4 sm:p-8 bg-rose-400 shadow sm:rounded-lg">
+                    <div className="promoWrapper">
                         <div className="promo promo-2">
                             <p>Connect Your First Smart Meter - Free!</p>
                             <a className="promoLink" href="">
@@ -80,7 +80,7 @@ export default function Welcome(props) {
                             </a>
                         </div>
                     </div>
-                    <div className="p-4 sm:p-8 bg-lime-400 shadow sm:rounded-lg">
+                    <div className="promoWrapper">
                         <div className="promo promo-3">
                             <p>PwC Saved 20% With Streemer</p>
                             <a className="promoLink" href="#">
