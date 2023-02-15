@@ -52,14 +52,14 @@ html {
 }
 
 body {
-    background-color: var(--darkBlueBG);
-    background-image: linear-gradient(
+    /* background-color: var(--darkBlueBG); */
+    /* background-image: linear-gradient(
         90deg,
         var(--raspberry) 0%,
         var(--lightBlue) 50%,
         var(--green) 88%,
         var(--gold) 100%
-    );
+    ); */
     color: var(--whiteFont);
     display: flex;
     flex-direction: column;
@@ -171,18 +171,18 @@ a:hover {
 }
 
 .introText > .introTextSpan1 {
-    animation-delay: 150ms;
-    animation-duration: 3000ms;
+    animation-delay: 100ms;
+    animation-duration: 1000ms;
 }
 
 .introText > .introTextSpan2 {
     animation-delay: 1000ms;
-    animation-duration: 3000ms;
+    animation-duration: 1000ms;
 }
 
 .introText > .introTextSpan3 {
     animation-delay: 2000ms;
-    animation-duration: 3000ms;
+    animation-duration: 1000ms;
 }
 
 /* Get Started Button */
@@ -190,7 +190,7 @@ a:hover {
 .heroButton {
     animation-name: fade-in-animation;
     animation-delay: 3000ms;
-    animation-duration: 1600ms;
+    animation-duration: 500ms;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
     --borderSize: 1px;
@@ -206,6 +206,7 @@ a:hover {
     opacity: 0;
     padding: min(1.5rem) 6rem;
     transition: outline-offset 450ms ease, outline-width 450ms ease;
+    margin-bottom: 1rem;
 }
 
 .heroButton:hover,
@@ -279,8 +280,8 @@ a:hover {
     animation-timing-function: ease-in;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    animation-delay: 4000ms;
-    animation-duration: 1000ms;
+    animation-delay: 2000ms;
+    animation-duration: 500ms;
     border: 0px;
     border-radius: var(---borderRadius);
     box-shadow: var(--boxshadow);
@@ -346,7 +347,7 @@ a:hover {
     bottom: 0px;
     left: 0px;
     width: 90%;
-    height: 100%;
+    height: auto;
     margin: auto;
     padding-bottom: var(--paddingBottom);
     padding-top: 4%;
@@ -366,8 +367,9 @@ a:hover {
 
 .footer {
     align-items: center;
+    background-color: red;
     box-shadow: 0 -0.5rem 0.5rem -0.5rem var(--shadow);
-    color: var(--whiteFont);
+    color: var(--shadow);
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -377,11 +379,12 @@ a:hover {
 
 .footer span {
     font-size: clamp(0.5rem, 0.5vw, 2rem);
-    font-weight: 600;
+    font-weight: 700;
     padding-right: 2rem;
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
+    color: var(--whiteFont);
 }
 
 /* Modals */

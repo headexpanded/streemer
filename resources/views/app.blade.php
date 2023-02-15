@@ -14,6 +14,7 @@
         @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
         @inertiaHead
         <link rel="stylesheet" href="{{ asset('custom.css') }}">
+        <script src="{{asset('js/streemer_modal.js')}}"></script>
     </head>
     <body class="font-sans antialiased">
         @inertia

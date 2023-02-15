@@ -53,6 +53,7 @@ export default function Welcome(props) {
                         <Link className="heroButton" href={route("register")}>
                             GET STARTED
                         </Link>
+                        Already have an account?
                         <Link
                             href={route("login")}
                             className="text-sm text-gray-700 dark:text-gray-500 underline"
@@ -133,6 +134,17 @@ export default function Welcome(props) {
                     </div>
                 </section>
             </div>
+            <footer class="footer">
+                <span class="openModal" id="aboutModal">
+                    About
+                </span>
+                <span class="openModal" id="contactModal">
+                    Contact
+                </span>
+                <span class="openModal" id="tandcModal">
+                    Terms & Conditions
+                </span>
+            </footer>
         </>
     );
 }
