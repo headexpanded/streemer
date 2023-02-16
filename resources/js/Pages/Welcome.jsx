@@ -6,7 +6,7 @@ export default function Welcome(props) {
     return (
         <>
             <Head title="Welcome" />
-            <main>
+            <main className="bg-gradient-to-r from-indigo-300 to-sky-200">
                 <div className="relative flex items-top justify-center min-h-screen bg-gradient-to-r from-indigo-300 to-sky-200 sm:items-center sm:pt-0">
                     <div className="fixed top-0 right-0 px-6 py-4 sm:block">
                         {props.auth.user ? (
@@ -36,7 +36,7 @@ export default function Welcome(props) {
                     <section>
                         <div className="hero">
                             <div className="heroText" translate="no">
-                                <h1>Streemer</h1>
+                                <h1 className="heroText">Streemer</h1>
                             </div>
                             <div className="heroSubText">
                                 <h2>Say goodbye to huge energy bills</h2>
@@ -52,7 +52,10 @@ export default function Welcome(props) {
                                     streeeeeeem your energy cost
                                 </span>
                             </div>
-                            <Link className="heroButton" href={route("register")}>
+                            <Link
+                                className="heroButton"
+                                href={route("register")}
+                            >
                                 GET STARTED
                             </Link>
                             Already have an account?
@@ -67,7 +70,7 @@ export default function Welcome(props) {
                             {/* Promo components */}
                             <div className="promoWrapper">
                                 <Promo
-                                    promoText="Streemer supports 90% of Europe’s energy
+                                    promoText="Supports 90% of Europe’s energy
                                         providers"
                                     className="promo promo-1"
                                     id="promo-1"
@@ -88,7 +91,7 @@ export default function Welcome(props) {
                             </div>
                             <div className="promoWrapper">
                                 <Promo
-                                    promoText="PwC Saved 20% With Streemer"
+                                    promoText="Save 20% With Streemer"
                                     className="promo promo-3"
                                     id="promo-3"
                                     href={route("register")}
@@ -100,16 +103,16 @@ export default function Welcome(props) {
                         <div className="cardWrapper">
                             <figure className="testimonial">
                                 <blockquote>
-                                    We use Streemer to improve our cash flow - our
-                                    treasury management is much better than before.
-                                    Highly recommended.
+                                    We use Streemer to improve our cash flow -
+                                    our treasury management is much better than
+                                    before. Highly recommended.
                                 </blockquote>
                                 <figcaption>Lucien B, XYZ Corp.</figcaption>
                             </figure>
                             <figure className="testimonial">
                                 <blockquote>
-                                    Our factory uses a lot of energy. We alter our
-                                    daily limit on Streemer depending on our
+                                    Our factory uses a lot of energy. We alter
+                                    our daily limit on Streemer depending on our
                                     production schedule - it helps a lot.
                                 </blockquote>
                                 <figcaption>Carlo, Grand Usine S.A.</figcaption>
@@ -131,7 +134,9 @@ export default function Welcome(props) {
                                 Then streeeeeeem your bills by small, regular
                                 amounts
                             </p>
-                            <p>Sign up today: your first smart meter is free!</p>
+                            <p>
+                                Sign up today: your first smart meter is free!
+                            </p>
                             <p>
                                 <a className="heroButton" href="">
                                     GET STARTED

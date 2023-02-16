@@ -19,7 +19,7 @@
     /* other colors */
     --green: hsl(130, 92%, 43%);
     --lightBlue: hsl(217, 100%, 61%);
-    --orange: hsl(19, 97%, 51%);
+    --orange: hsl(24, 100%, 50%);
     --gold: hsl(44, 100%, 52%);
     --raspberry: hsl(334, 100%, 50%);
     --shadow: hsl(180deg, 100%, 10%);
@@ -114,14 +114,37 @@ a:hover {
 }
 
 .heroText h1 {
+    --bg-size: 400%;
+    --color-one: hsl(241, 100%, 50%);
+    --color-two: hsl(253, 95%, 60%);
     text-align: center;
-    color: var(--whiteFont);
+    /* color: var(--whiteFont); */
     font-size: clamp(4em, 6vw, 100px);
     font-weight: 900;
     letter-spacing: var(--letterSpacing);
     padding-top: 4vh;
     padding-bottom: var(--paddingBottom);
-    text-shadow: 1px 2px 10px var(--shadow);
+    /* text-shadow: 1px 2px 10px var(--shadow); */
+    background: linear-gradient(
+            90deg,
+            var(--color-one),
+            var(--color-two),
+            var(--color-one)
+        )
+        0 0 / var(--bg-size) 100%;
+    color: transparent;
+    background-clip: text;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .heroText {
+        animation: move-bg 12s linear 3s infinite alternate-reverse;
+    }
+    @keyframes move-bg {
+        to {
+            background-position: var(--bg-size) 0;
+        }
+    }
 }
 
 .heroSubText {
@@ -145,42 +168,44 @@ a:hover {
     flex-direction: column;
     justify-items: center;
     line-height: var(--lineHeight);
-    padding-bottom: var(--paddingBottom);
+    /* padding-bottom: var(--paddingBottom); */
+    text-shadow: 2px 2px 2rem var(--whiteBG);
 }
 
 .introText span {
     animation-name: fade-in-animation;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
-    color: var(--whiteFont);
-    font-size: clamp(16px, 2.5vw, 20px);
-    font-weight: 500;
+    color: var(--orange);
+    font-size: clamp(20px, 2.5vw, 40px);
+    font-weight: 900;
     letter-spacing: var(--letterSpacing);
     line-height: var(--lineHeight);
     opacity: 0;
+    padding-bottom: var(--paddingBottom);
     text-align: center;
 }
 
 .introText > .introTextSpan1 {
-    animation-delay: 00ms;
-    animation-duration: 000ms;
+    animation-delay: 500ms;
+    animation-duration: 300ms;
 }
 
 .introText > .introTextSpan2 {
-    animation-delay: 000ms;
-    animation-duration: 000ms;
+    animation-delay: 1200ms;
+    animation-duration: 300ms;
 }
 
 .introText > .introTextSpan3 {
-    animation-delay: 00ms;
-    animation-duration: 000ms;
+    animation-delay: 1900ms;
+    animation-duration: 300ms;
 }
 
 /* Get Started Button */
 
 .heroButton {
     animation-name: fade-in-animation;
-    animation-delay: 300ms;
+    animation-delay: 2500ms;
     animation-duration: 300ms;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
@@ -210,7 +235,7 @@ a:hover {
 @keyframes fade-in-animation {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(60px);
     }
     to {
         opacity: 1;
@@ -345,7 +370,7 @@ a:hover {
 }
 
 .benefits p {
-    color:var(--whiteFont);
+    color: var(--whiteFont);
     font-size: clamp(1.5rem, 1.25rem, 2rem);
     font-weight: 700;
     padding: 1.5rem;
