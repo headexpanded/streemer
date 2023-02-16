@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('smartmeter');
             $table->string('name')->nullable();
             $table->foreignId('supplier_id')->nullable()->cascadeOnDelete();
-            $table->decimal('totalPayable', $precision = 20, $scale= 4);
+            $table->decimal('amount_payable', $precision = 20, $scale= 4)->nullable();
             $table->timestamps();
         });
     }

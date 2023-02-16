@@ -44,6 +44,7 @@ class SmartMeterController extends Controller
             'smartmeter' => 'required|string|max:16',
             'name' => 'string:max:255',
             'supplier_id' => 'integer',
+            'amount_payable' => 'decimal',
         ]);
  
         $request->user()->smartmeters()->create($validated);

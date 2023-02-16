@@ -391,11 +391,11 @@ a:hover {
     flex-direction: row;
     justify-content: flex-end;
     margin-top: 4rem;
-    min-height: 2.5rem;
+    min-height: 3rem;
 }
 
 .footer span {
-    font-size: clamp(0.5rem, 0.5vw, 2rem);
+    font-size: clamp(.5rem, .75rem, 1rem);
     font-weight: 700;
     padding-right: 2rem;
     cursor: pointer;
@@ -439,121 +439,7 @@ a:hover {
     box-shadow: 0 0 1em var(--shadow);
 } */
 
-/* Register form */
-.streemerRegisterViewWrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    place-items: center;
-    padding-top: 2rem;
-    height: 100vh;
-}
 
-.streemer_FormWrapper {
-    margin-bottom: 0.5rem;
-}
-
-.streemer_FormFieldSet {
-    background-color: var(--lightBlue);
-    border: 2px solid var(--gold);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    place-items: center;
-    padding: 1.5rem;
-    width: 360px;
-}
-
-.legendText {
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 0px 0.5rem;
-}
-
-.formAdvice {
-    border-bottom: 1px dashed white;
-    padding-bottom: 0.5rem;
-    text-align: center;
-}
-
-.formAdvice span {
-    color: var(--whiteFont);
-    display: inline-block;
-    font-size: min(0.75rem, 1rem);
-    line-height: var(--lineHeight);
-    text-align: center;
-}
-
-.fieldSetGroupWrapper {
-    background: transparent;
-    min-width: 80%;
-}
-
-.inputWrapper {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center;
-    justify-content: flex-end;  */
-    padding: 0.5rem;
-}
-
-.inputWrapper input {
-    margin: 0 0 1rem 0;
-    padding: 0.75rem;
-    border: 0;
-    box-shadow: var(--boxshadow);
-    background: linear-gradient(green white);
-}
-
-.labelText {
-    color: var(--white);
-    font-size: min(0.75rem, 1rem);
-    padding: 0.5rem 0;
-}
-
-.registerGroupWrapper {
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    margin: auto;
-    padding: 1rem 0;
-}
-
-.submitBtn {
-    background: var(--green);
-    border: 0;
-    box-shadow: var(--boxshadow);
-    color: var(--whiteFont);
-    cursor: pointer;
-    font-weight: 400;
-    padding: 1.5rem;
-    margin: 1rem;
-    text-align: center;
-    width: 60%;
-}
-
-.submitBtn:hover,
-.submitBtn:focus {
-    transform: scale(var(--scale));
-}
-
-.registerLoginFallback {
-    text-align: center;
-    width: min(300px, 50%);
-}
-
-.registerLoginFallback span,
-a {
-    font-size: 0.8rem;
-}
-
-/* Login Form */
-.remember {
-    font-size: 0.8rem;
-}
-
-/* fieldset:invalid ~ fieldset {
-    display: none;
-} */
 
 .animated {
     -webkit-animation-duration: 0.3s;

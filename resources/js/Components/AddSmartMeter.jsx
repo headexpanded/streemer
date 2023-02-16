@@ -6,10 +6,11 @@ import TextInput from "./TextInput";
 import PrimaryButton from "@/Components/PrimaryButton";
 
 export default function AddSmartMeter({ className, close }) {
-    const { data, setData, post, processing, reset, errors } = useForm({
+    const { data, setData, post, processing, reset, errors, recentlySuccessful } = useForm({
         smartmeter: "",
         name: "",
         supplier_id: "",
+        supplier_rate: "",
     });
 
     const [notification, setNotification] = useState("");
@@ -27,6 +28,7 @@ export default function AddSmartMeter({ className, close }) {
             route("smartmeters.store"),
             { preserveScroll: true },
             { onSuccess: () => reset() }
+            // {recentlySuccessful }
         );
         _setNotification("Smart meter sucessfully created");
         setTimeout(() => close(), 2000);

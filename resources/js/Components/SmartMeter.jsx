@@ -8,6 +8,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useForm, usePage } from "@inertiajs/react";
 import CostCounter from "./CostCounter";
+import { forEach } from "lodash";
 
 dayjs.extend(relativeTime);
 
@@ -40,6 +41,8 @@ export default function SmartMeter({ smartmeter }) {
         };
         fetchData();
     }, []);
+
+    
 
     return (
         <div className=" flex">
@@ -187,7 +190,7 @@ export default function SmartMeter({ smartmeter }) {
                             Supplier: {smartmeter.supplier.name}
                         </p>
 
-                        <CostCounter />
+                        <CostCounter supplier_rate="12" />
                     </div>
                 )}
             </div>

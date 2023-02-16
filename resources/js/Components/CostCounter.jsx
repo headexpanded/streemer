@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import PrimaryButton from "./PrimaryButton";
 import DangerButton from "./DangerButton";
 
-export default function CostCounter() {
+export default function CostCounter({ supplier_rate }) {
     const [startCostCounter, setStartCostCounter] = useState(null);
     const [now, setNow] = useState(null);
     const [showPauseButton, setShowPauseButton] = useState(false);
@@ -20,7 +20,7 @@ export default function CostCounter() {
         setShowStartButton(false);
     }
 
-    function handleStop() {
+    function handlePause() {
         clearInterval(intervalRef.current);
         setShowPauseButton(false);
         setShowStartButton(true);
@@ -34,14 +34,19 @@ export default function CostCounter() {
     return (
         <>
             <p className="mt-4 text-lg text-gray-900">
+                Supplier Rate (cents/kWh): {supplier_rate}
+            </p>
+            <p className="mt-4 text-lg text-gray-900">
                 Cost since last payment (in cents): {runningCost.toFixed(4)}
             </p>
 
-            {showStartButton && <PrimaryButton onClick={handleStart} className="mt-4">
-                Start
-            </PrimaryButton>}
+            {showStartButton && (
+                <PrimaryButton onClick={handleStart} className="mt-4">
+                    Start
+                </PrimaryButton>
+            )}
             {showPauseButton && (
-                <DangerButton onClick={handleStop} className="mt-4">
+                <DangerButton onClick={handlePause} className="mt-4">
                     Pause
                 </DangerButton>
             )}

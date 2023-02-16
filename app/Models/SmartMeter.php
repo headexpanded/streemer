@@ -13,7 +13,7 @@ class SmartMeter extends Model
         'smartmeter',
         'name',
         'supplier_id',
-        'totalPayable',
+        'amount_payable',
     ];
 
     public function user()

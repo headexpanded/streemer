@@ -16,9 +16,9 @@ class SupplierSeeder extends Seeder
     public function run()
     {
         DB::table('suppliers')->insert([
-            ['name' => 'Creos', 'supplier_rate' => '0.025'],
-            ['name' => 'Enovos', 'supplier_rate' => '0.045'],
-            ['name' => 'SudEnergie', 'supplier_rate' => '0.035'],
+            ['name' => 'Creos', 'supplier_rate' => '0.02536'],
+            ['name' => 'Enovos', 'supplier_rate' => '0.04512'],
+            ['name' => 'SudEnergie', 'supplier_rate' => '0.03594'],
 
         ]);
     }
