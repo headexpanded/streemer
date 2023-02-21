@@ -17,6 +17,8 @@ class SupplierController extends Controller
 
     public function show($supplier_id)
     {
-        //
+        $supplier = Supplier::find($supplier_id);
+        
+        return response()->json($supplier);
     }
 }

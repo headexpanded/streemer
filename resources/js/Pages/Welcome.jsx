@@ -5,7 +5,14 @@ import PromoLink from "@/Components/PromoLink";
 export default function Welcome(props) {
     return (
         <>
-            <Head title="Welcome" />
+            <Head>
+                <title>Streemer</title>
+                <meta
+                    name="description"
+                    content="Streemer helps you manage your energy cashflows"
+                />
+                <script src="streemer_modal.js"></script>
+            </Head>
             <main className="bg-gradient-to-r from-indigo-300 to-sky-200">
                 <div className="relative flex items-top justify-center min-h-screen bg-gradient-to-r from-indigo-300 to-sky-200 sm:items-center sm:pt-0">
                     <div className="fixed top-0 right-0 px-6 py-4 sm:block">
@@ -157,6 +164,24 @@ export default function Welcome(props) {
                     Terms & Conditions
                 </span>
             </footer>
+            <dialog
+                className="footerModal animated fadeInDown"
+                id="footerModal"
+            >
+                <h1>Nothing to see here.</h1>
+                <p>
+                    This isn't a real business. It was an idea I had for an
+                    end-of-bootcamp class project.
+                </p>
+                <p>
+                    This is my version, using Laravel, Inertia, React, pure css,
+                    and a very loud colour palette.
+                </p>
+                {/* <Link href="https://github.com/headexpanded/streemer">
+                    GitHub Repo
+                </Link> */}
+                <button id="closeModal">Close</button>
+            </dialog>
         </>
     );
 }

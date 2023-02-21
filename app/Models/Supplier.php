@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Inertia\Inertia;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -30,4 +31,10 @@ class Supplier extends Model
         $suppliers = Supplier::all();
         return response()->json($suppliers);
     }
+
+    public function show($id)
+    {
+        return self::where('id', $id)->first();
+    }
+
 }
